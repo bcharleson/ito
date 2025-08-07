@@ -7,11 +7,13 @@ This guide covers the development setup and workflow for contributing to the Ito
 ### Prerequisites
 
 1. **Install Rust** (required for native components):
+
    ```bash
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
 
 2. **Install Bun** (if not already installed):
+
    ```bash
    curl -fsSL https://bun.sh/install | bash
    ```
@@ -24,23 +26,27 @@ This guide covers the development setup and workflow for contributing to the Ito
 ### Initial Setup
 
 1. **Clone your fork**:
+
    ```bash
    git clone https://github.com/bcharleson/ito.git
    cd ito
    ```
 
 2. **Set up remotes** (already done in your case):
+
    ```bash
    git remote rename origin upstream
    git remote add origin https://github.com/bcharleson/ito.git
    ```
 
 3. **Install dependencies**:
+
    ```bash
    bun install
    ```
 
 4. **Build native components**:
+
    ```bash
    ./build-binaries.sh
    ```
@@ -65,11 +71,13 @@ We've created two main scripts to streamline your development workflow:
 Checks for new releases from the upstream repository and updates your fork.
 
 **Usage:**
+
 ```bash
 ./scripts/update-ito.sh
 ```
 
 **What it does:**
+
 - Checks for new releases from upstream
 - Compares versions and prompts for confirmation
 - Creates a backup branch before updating
@@ -83,6 +91,7 @@ Checks for new releases from the upstream repository and updates your fork.
 Manages the entire development workflow from feature creation to PR submission.
 
 **Usage:**
+
 ```bash
 ./scripts/dev-workflow.sh <command> [options]
 ```
@@ -90,24 +99,31 @@ Manages the entire development workflow from feature creation to PR submission.
 **Available commands:**
 
 #### Sync with Upstream
+
 ```bash
 ./scripts/dev-workflow.sh sync
 ```
+
 Syncs your fork with the latest changes from the upstream repository.
 
 #### Create Feature Branch
+
 ```bash
 ./scripts/dev-workflow.sh create-feature "add dark mode"
 ```
+
 Creates a new feature branch from the latest upstream changes.
 
 #### Commit Changes
+
 ```bash
 ./scripts/dev-workflow.sh commit feat "add dark mode support"
 ```
+
 Commits changes using conventional commit format.
 
 **Commit types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -117,32 +133,40 @@ Commits changes using conventional commit format.
 - `chore`: Maintenance tasks
 
 #### Push Changes
+
 ```bash
 ./scripts/dev-workflow.sh push
 ./scripts/dev-workflow.sh push --force  # Force push if needed
 ```
 
 #### Run Tests
+
 ```bash
 ./scripts/dev-workflow.sh test
 ```
+
 Runs linting, tests, and build checks.
 
 #### Create Pull Request
+
 ```bash
 ./scripts/dev-workflow.sh create-pr "Add dark mode support" "This PR adds dark mode..."
 ```
 
 #### Show Status
+
 ```bash
 ./scripts/dev-workflow.sh status
 ```
+
 Shows current branch, uncommitted changes, and recent commits.
 
 #### Cleanup Feature Branch
+
 ```bash
 ./scripts/dev-workflow.sh cleanup feature/add-dark-mode
 ```
+
 Deletes a feature branch after PR is merged.
 
 ## 🔄 Development Workflow
@@ -199,6 +223,7 @@ Deletes a feature branch after PR is merged.
 ### Running the Application
 
 1. **Start the server** (in one terminal):
+
    ```bash
    cd server
    bun run dev
@@ -260,11 +285,13 @@ ito/
 Create `.env` files in both the root and server directories:
 
 **Root `.env`:**
+
 ```env
 # Add any client-side environment variables
 ```
 
 **Server `.env`:**
+
 ```env
 # Database
 DATABASE_URL=postgresql://localhost:5432/ito
